@@ -15,5 +15,29 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('demo');
+    return Inertia::render('listings', [
+        'heading' => "Latest Listings",
+        'listings' => [
+            [
+                'id' => 1,
+                'title' => 'Listing One',
+                'description' => 'This is a description',
+            ],
+            [
+                'id' => 2,
+                'title' => 'Listing Two',
+                'description' => 'This is a description',
+            ]
+        ]
+    ]);
+});
+
+Route::get('/listing/{id}', function ($id) {
+    return Inertia::render('listing', [
+        'listing' => [
+            'id' => $id,
+            'title' => 'Listing ' . $id,
+            'description' => 'This is a description',
+        ]
+    ]);
 });
