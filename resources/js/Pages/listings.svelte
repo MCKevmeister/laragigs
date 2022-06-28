@@ -1,3 +1,8 @@
+<script context="module">
+    import Layout from './Layout.svelte'
+    export const layout = Layout
+</script>
+
 <script>
     import {Link} from "@inertiajs/inertia-svelte";
 
