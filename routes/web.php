@@ -16,14 +16,14 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('listings', [
+    return Inertia::render('Listings', [
         'heading' => "Latest Listings",
         'listings' => Listing::all()
     ]);
 });
 
 Route::get('/listing/{id}', function ($id) {
-    return Inertia::render('listing', [
+    return Inertia::render('Listing', [
         'listing' => Listing::find($id)
     ]);
 });
