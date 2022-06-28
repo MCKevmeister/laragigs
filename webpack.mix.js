@@ -1,6 +1,6 @@
 const mix = require('laravel-mix');
 require('laravel-mix-tailwind')
-require('laravel-mix-svelte');
+const path = require("path");
 
 /*
  |--------------------------------------------------------------------------
@@ -14,13 +14,37 @@ require('laravel-mix-svelte');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    //.webpackConfig({stats: {children: true,},})
     .postCss('resources/css/app.css', 'public/css/app.css', [
         //
         ]
     )
-    .svelte()
+    .webpackConfig({
+        stats: {children: true,},
+        output: {chunkFilename: 'js/[name].js?id=[chunkhash]'},
+        resolve: {
+            mainFields: ['svelte', 'browser', 'module', 'main'],
+            alias: {
+                '@': path.resolve('resources/js'),
+            },
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.(svelte)$/,
+                    use: {
+                        loader: 'svelte-loader',
+                        options: {
+                            emitCss: true,
+                            hotReload: true,
+                            compilerOptions: {
+                                dev: true,
+                            }
+                        },
+                    },
+                },
+            ],
+        },
+    })
+    .tailwind()
     .version()
-    .sourceMaps();
-
-
+    .sourceMaps()
