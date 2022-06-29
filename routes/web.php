@@ -22,8 +22,16 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/listing/{id}', function ($id) {
+Route::get('/listings/{id}', function (Listing $listing) {
     return Inertia::render('Listing', [
-        'listing' => Listing::find($id)
+        'listing' => [
+            'title' => $listing->title,
+            'tags' => $listing->tags,
+            'company' => $listing->company,
+            'location' => $listing->location,
+            'email' => $listing->email,
+            'website' => $listing->website,
+            'description' => $listing->description,
+        ]
     ]);
 });
