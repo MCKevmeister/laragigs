@@ -2,4 +2,4 @@ Made following [this](https://www.youtube.com/watch?v=MYyJ4PuL4pY) tutorial.
 
 Instead of blade, using Svelte and Inertia. Making modifications when needed.
 
-Timestamp: 1:18:00
+Timestamp: 1:27:00
