@@ -8,7 +8,10 @@ module.exports = {
     theme: {
         extend: {},
     },
-    plugins: [
-
-    ],
+    plugins: [],
+    theme: {
+        colors: {
+            'bg-laravel': '#ef3b2d'
+        }
+    }
 }
