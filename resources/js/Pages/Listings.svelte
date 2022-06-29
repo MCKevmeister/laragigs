@@ -5,10 +5,15 @@
 </script>
 
 <script>
-    import Listing from "./Listing.svelte";
+    import Hero from "./Components/Hero.svelte";
+    import Search from "./Components/Search.svelte";
+    import ListingItem from "./Components/ListingItem.svelte";
 
     export let listings
 </script>
+
+<Hero />
+<Search />
 
 <div class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4">
     <div>
@@ -16,7 +21,7 @@
             <p>No listings found</p>
         {/if}
         {#each listings as listing}
-           <Listing {... listing}/>
+           <ListingItem {... listing}/>
         {/each}
     </div>
 </div>
