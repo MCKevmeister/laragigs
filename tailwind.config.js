@@ -6,12 +6,11 @@ module.exports = {
         "./resources/**/*.svelte",
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                laravel: "#ef3b2d",
+            },
+        },
     },
-    plugins: [],
-    theme: {
-        colors: {
-            'bg-laravel': '#ef3b2d'
-        }
-    }
+    plugins: []
 }
